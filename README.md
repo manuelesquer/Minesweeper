@@ -8,5 +8,4 @@ Run main.py to start playing. Enjoy it
 
 * Include music and a button to active and deactive it.
 * Create a mark clicking to select in which squares there is a bomb
-* Show all the bombs when you lose clicking one of them.
 * Include a ranking with the time and the level.

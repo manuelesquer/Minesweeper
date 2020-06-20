@@ -23,7 +23,6 @@ class Grid:
 
     # This function is in charge of drawing everything in the playing window
     def draw_grid(self,win):
-
         marge=15
         gap= [self.width/self.cols,self.height/self.rows]
         #draw the lines of the grid
@@ -35,6 +34,7 @@ class Grid:
         for i in range(self.rows):
             for j in range(self.cols):
                 self.cubes[i][j].draw(win)
+
 
     # Create the random position of the bombs in the grid
     def set_bombs(self):
@@ -134,7 +134,5 @@ class Grid:
     # Draw all the bombs on the grid
     def draw_bombs(self,win):
         for pos in self.bomb_pos:
-            x = pos[1] * 25 +15+2
-            y = pos[0] * 25 +60+2
-            pygame.draw.rect(win,(255,0,0),(x,y,25-2,25-2))
-            win.blit(bomb,(x,y))
+            self.cubes[pos[0]][pos[1]].activate_selected()
+            self.cubes[pos[0]][pos[1]].draw(win)

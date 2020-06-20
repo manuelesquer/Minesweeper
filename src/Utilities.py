@@ -23,6 +23,7 @@ def winning(board,win,width):
 
 def losing(board,win,width):
     draw_emoji(win,3,width)
+    board.draw_bombs(win)
     pygame.display.update()
     message_box('BOOM','You lose. Try it again!')
     board.reset()
