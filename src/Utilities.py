@@ -6,6 +6,7 @@ from tkinter import messagebox
 
 from Grid import Grid
 from Cube import Cube
+from Button import Button
 
 from Initial_win import initial_win
 
@@ -28,10 +29,10 @@ def losing(board,win,width):
     message_box('BOOM','You lose. Try it again!')
     board.reset()
 
-def board_init(board,win,width,correct):
+def board_init(board,win,width,button):
     bomb_pos=board.set_bombs()
     board.neighbors(bomb_pos)
-    draw_window(win,board,width,correct)
+    draw_window(win,board,width,0,button)
     pygame.display.update()
 
 def message_box(subject, content):
@@ -44,13 +45,13 @@ def message_box(subject, content):
     except:
         pass
 
-def draw_window(win,board,width,correct):
+def draw_window(win,board,width,correct,button):
     win.fill((200,200,200))
     board.draw_grid(win)
-
     # Draw the cube of reset
     pygame.draw.rect(win,(100,100,100),(width/2-15,15,30,30))
     # Draw the emojis of the reset button
+    button.draw(win)
     if correct:
         draw_emoji(win,1,width)
     else:
@@ -70,7 +71,7 @@ def configure_level():
     elif level==2:
         rows=16
         cols=16
-    elif level ==3:
+    else:
         rows=20
         cols=20
 

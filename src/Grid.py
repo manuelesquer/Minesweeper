@@ -76,18 +76,20 @@ class Grid:
                 self.cubes[pos[0]+1][pos[1]+1].increment()
 
     # Get the position of the mouse click
-    def click_grid(self, pos):
+    def click_grid(self, pos,typeclick):
         gap_x = self.width // self.rows
         gap_y = self.height // self.cols
         x = (pos[0]-15) // gap_x
         y = (pos[1]-60) // gap_y
         pos_grid = [int(y),int(x)]
-        self.cubes[pos_grid[0]][pos_grid[1]].activate_selected()
-
-        if self.table[pos_grid[0]][pos_grid[1]]==0:
-            self.expand(pos_grid)
-        elif self.table[pos_grid[0]][pos_grid[1]]==-1:
-            return True
+        if typeclick == 1:
+            self.cubes[pos_grid[0]][pos_grid[1]].activate_selected()
+            if self.table[pos_grid[0]][pos_grid[1]]==0:
+                self.expand(pos_grid)
+            elif self.table[pos_grid[0]][pos_grid[1]]==-1:
+                return True
+        elif typeclick == 3:
+            self.cubes[pos_grid[0]][pos_grid[1]].mine_preselected()
         return False
 
     # Expand the squares in case that the value is 0

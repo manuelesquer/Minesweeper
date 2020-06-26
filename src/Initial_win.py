@@ -24,12 +24,13 @@ def draw_win(win,easy,inter,diff):
 
 def initial_win():
 
-    easybutton=Button(150,175,"Easy")
-    interbutton=Button(150,300,"Intermediate")
-    diffbutton=Button(150,425,"Difficult")
+    selcolour=(100,100,100)
+    unselcolour=(120,120,120)
+    easybutton=Button(50,150,"Easy",200,50,selcolour,unselcolour)
+    interbutton=Button(50,275,"Intermediate",200,50,selcolour,unselcolour)
+    diffbutton=Button(50,400,"Difficult",200,50,selcolour,unselcolour)
 
-    selcolor=(100,100,100)
-    unselcolor=(120,120,120)
+
     win = pygame.display.set_mode((300,500))
     run=True
     clock = pygame.time.Clock()
@@ -42,17 +43,17 @@ def initial_win():
                 run = False
             if event.type == pygame.MOUSEMOTION:
                 if easybutton.check_pos(pos):
-                    easybutton.change_color(selcolor)
+                    easybutton.change_color(True)
                 else:
-                    easybutton.change_color(unselcolor)
+                    easybutton.change_color(False)
                 if interbutton.check_pos(pos):
-                    interbutton.change_color(selcolor)
+                    interbutton.change_color(True)
                 else:
-                    interbutton.change_color(unselcolor)
+                    interbutton.change_color(False)
                 if diffbutton.check_pos(pos):
-                    diffbutton.change_color(selcolor)
+                    diffbutton.change_color(True)
                 else:
-                    diffbutton.change_color(unselcolor)
+                    diffbutton.change_color(False)
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if easybutton.check_pos(pos):
