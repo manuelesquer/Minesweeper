@@ -1,6 +1,7 @@
 import pygame
 
 bomb=pygame.image.load('../images/greybomb23.png')
+flag=pygame.image.load('../images/flag.png')
 
 class Cube:
 
@@ -34,7 +35,7 @@ class Cube:
             self.mineselected = False
         elif self.mineselected == True:
             # Draw the flag to indicate the mine
-            pygame.draw.rect(win,(0,255,0),(x,y,self.width-4,self.height-4))
+            win.blit(flag,(x,y))
 
     def increment(self):
         self.value+=1
