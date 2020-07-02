@@ -6,5 +6,4 @@ Run main.py to start playing. Enjoy it
 
 ## Future improvements
 
-* Include music and a button to active and deactive it.
 * Include a ranking with the time and the level.
